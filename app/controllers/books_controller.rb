@@ -56,6 +56,9 @@ class BooksController < ApplicationController
     end
   end
 
+  def delete
+    @book = Book.find(params[:id])
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
@@ -64,6 +67,7 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title)
+      params.require(:book).permit(:title, :author, :price, :published_date)
     end
 end
+
